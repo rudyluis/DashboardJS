@@ -81,5 +81,5 @@ body {
 
   #graficoRadar, #graficoDoughnut, #ventasPorFecha,#ventasPorPais, #ventasPorCategoria {
     max-width: 100%;
-    height: 500px !important; /* Ajusta el alto según lo que necesites */
+    height: 450px !important; /* Ajusta el alto según lo que necesites */
   }
