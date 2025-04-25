@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo con Chart.js + Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-box {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    canvas {
+      width: 100% !important;
+      height: 80% !important;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container my-5">
+  <h1 class="text-center mb-5">Gráficas con Chart.js y Bootstrap</h1>
+  <div class="row">
+
+    <!-- Línea -->
+    <div class="col-md-6">
+      <div class="chart-box">
+        <h5 class="text-center">Gráfico de Líneas</h5>
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Barras -->
+    <div class="col-md-6">
+      <div class="chart-box">
+        <h5 class="text-center">Gráfico de Barras</h5>
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Pastel -->
+    <div class="col-md-6">
+      <div class="chart-box">
+        <h5 class="text-center">Gráfico de Pastel</h5>
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Doughnut -->
+    <div class="col-md-6">
+      <div class="chart-box">
+        <h5 class="text-center">Gráfico Doughnut</h5>
+        <canvas id="doughnutChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Radar -->
+    <div class="col-md-6">
+      <div class="chart-box">
+        <h5 class="text-center">Gráfico de Radar</h5>
+        <canvas id="radarChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Polar Area -->
+    <div class="col-md-6">
+      <div class="chart-box">
+        <h5 class="text-center">Gráfico Polar Area</h5>
+        <canvas id="polarChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Dispersión -->
+    <div class="col-md-6">
+      <div class="chart-box">
+        <h5 class="text-center">Gráfico de Dispersión</h5>
+        <canvas id="scatterChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Burbujas -->
+    <div class="col-md-6">
+      <div class="chart-box">
+        <h5 class="text-center">Gráfico de Burbujas</h5>
+        <canvas id="bubbleChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Barras Horizontales -->
+    <div class="col-md-6">
+      <div class="chart-box">
+        <h5 class="text-center">Barras Horizontales</h5>
+        <canvas id="horizontalBarChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'];
+  const dataValues = [65, 59, 80, 81, 56];
+
+  // Línea
+  new Chart(document.getElementById('lineChart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Ventas',
+        data: dataValues,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        tension: 0.4,
+        fill: false
+      }]
+    }
+  });
+
+  // Barras
+  new Chart(document.getElementById('barChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Ventas',
+        data: dataValues,
+        backgroundColor: 'rgba(153, 102, 255, 0.5)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1
+      }]
+    }
+  });
+
+  // Pastel
+  new Chart(document.getElementById('pieChart'), {
+    type: 'pie',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Ventas',
+        data: dataValues,
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
+      }]
+    }
+  });
+
+  // Doughnut
+  new Chart(document.getElementById('doughnutChart'), {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Ventas',
+        data: dataValues,
+        backgroundColor: ['#FF9F40', '#FF6384', '#4BC0C0', '#9966FF', '#36A2EB']
+      }]
+    }
+  });
+
+  // Radar
+  new Chart(document.getElementById('radarChart'), {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Ventas',
+        data: dataValues,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)'
+      }]
+    }
+  });
+
+  // Polar Area
+  new Chart(document.getElementById('polarChart'), {
+    type: 'polarArea',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Ventas',
+        data: dataValues,
+        backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384', '#4BC0C0', '#9966FF']
+      }]
+    }
+  });
+
+  // Dispersión
+  new Chart(document.getElementById('scatterChart'), {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'Puntos',
+        data: [
+        {x: 10, y: 20},
+        {x: 15, y: 10},
+        {x: 20, y: 30},
+        {x: 25, y: 25},
+        {x: 30, y: 35},
+        {x: 35, y: 40},
+        {x: 40, y: 28},
+        {x: 45, y: 45},
+        {x: 50, y: 38},
+        {x: 55, y: 50},
+        {x: 60, y: 42}
+        ],
+        backgroundColor: 'rgba(54, 162, 235, 0.6)'
+      }]
+    }
+  });
+
+  // Burbujas
+  new Chart(document.getElementById('bubbleChart'), {
+    type: 'bubble',
+    data: {
+      datasets: [{
+        label: 'Burbujas',
+        data: [
+        {x: 10, y: 20, r: 10},
+        {x: 15, y: 10, r: 15},
+        {x: 25, y: 30, r: 7},
+        {x: 30, y: 25, r: 12},
+        {x: 35, y: 40, r: 8},
+        {x: 40, y: 28, r: 14},
+        {x: 45, y: 45, r: 6},
+        {x: 50, y: 38, r: 11},
+        {x: 55, y: 50, r: 9},
+        {x: 60, y: 42, r: 13}
+        ],
+        backgroundColor: 'rgba(255, 206, 86, 0.6)'
+      }]
+    }
+  });
+
+  // Barras horizontales
+  new Chart(document.getElementById('horizontalBarChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Ventas',
+        data: dataValues,
+        backgroundColor: 'rgba(75, 192, 192, 0.5)'
+      }]
+    },
+    options: {
+      indexAxis: 'y'
+    }
+  });
+</script>
+
+</body>
+</html>
